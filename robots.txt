@@ -1,0 +1,8 @@
+# Robots.txt for The Soul Art
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://thesoulart.com/sitemap.xml
