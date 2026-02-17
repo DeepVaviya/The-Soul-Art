@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Handle hash on page load (e.g., gallery.html#arabic)
         const hash = window.location.hash.replace('#', '');
-        if (hash && ['bridal', 'arabic', 'designer'].includes(hash)) {
+        if (hash && ['bridal', 'arabic', 'designer', 'indian', 'engagement', 'baby-shower', 'festive'].includes(hash)) {
             const targetTab = document.querySelector(`[data-category="${hash}"]`);
             if (targetTab) {
                 targetTab.click();
