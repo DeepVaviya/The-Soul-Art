@@ -1551,7 +1551,7 @@ h6 {
 }
 
 .service-full-image {
-    /* aspect-ratio removed to allow natural height */
+    overflow: hidden;
 }
 
 .service-full-content h2 {
@@ -1792,4 +1792,525 @@ h6 {
     font-size: 0.65rem;
     color: rgba(245, 240, 230, 0.3);
     letter-spacing: 0.05em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN — MOBILE & TABLET OVERHAUL
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Tablets & Small Screens (≤ 767px) ─── */
+@media (max-width: 767px) {
+
+    /* Hero — hide ornaments that overlap text */
+    .hero-ornament {
+        display: none;
+    }
+
+    .hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 5rem 1.25rem 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.75rem;
+        line-height: 1.15;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.95rem;
+        max-width: 100%;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-divider {
+        margin-bottom: 2rem;
+    }
+
+    .hero-divider-line {
+        width: 3rem;
+    }
+
+    .scroll-indicator {
+        bottom: 5rem;
+    }
+
+    /* Navbar */
+    .navbar-inner {
+        padding: 0 1.25rem;
+    }
+
+    .navbar-logo-text {
+        font-size: 1.35rem;
+    }
+
+    .navbar-logo-sub {
+        font-size: 0.5rem;
+        letter-spacing: 0.15em;
+    }
+
+    /* Page Headers */
+    .page-header {
+        padding: 5rem 1.25rem 2.5rem;
+    }
+
+    /* Section spacing */
+    .pt-32 {
+        padding-top: 5rem;
+    }
+
+    .py-24 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .py-20 {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .mb-16 {
+        margin-bottom: 2.5rem;
+    }
+
+    .mb-12 {
+        margin-bottom: 2rem;
+    }
+
+    /* Typography scaling */
+    .text-5xl {
+        font-size: 2rem;
+    }
+
+    .text-6xl {
+        font-size: 2.5rem;
+    }
+
+    .text-7xl {
+        font-size: 3rem;
+    }
+
+    .text-4xl {
+        font-size: 1.75rem;
+    }
+
+    .text-3xl {
+        font-size: 1.5rem;
+    }
+
+    /* Gallery Tabs — horizontal scroll */
+    .gallery-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding: 0 0.5rem 0.5rem;
+        gap: 0.5rem;
+        scrollbar-width: none;
+    }
+
+    .gallery-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-tab {
+        flex-shrink: 0;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    /* Gallery grid — 2 columns on tablet, adjust items */
+    .gallery-item.wide {
+        grid-column: span 1;
+    }
+
+    .gallery-item.square .gallery-item-inner {
+        min-height: 200px;
+    }
+
+    .gallery-item.tall .gallery-item-inner {
+        min-height: 300px;
+    }
+
+    .gallery-item.wide .gallery-item-inner {
+        min-height: 180px;
+    }
+
+    /* Service layout */
+    .service-full {
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .service-meta {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    /* Add-ons grid */
+    .addons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    /* Contact cards */
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+        gap: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    /* Quote section */
+    .quote-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .quote-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* CTA section */
+    .cta-section {
+        padding: 3rem 1.25rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 3rem 1.25rem;
+        padding-bottom: 5rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+    }
+
+    /* Form section */
+    .form-section {
+        padding: 3.5rem 1.25rem;
+    }
+
+    /* Body bottom padding for WhatsApp mobile bar */
+    body {
+        padding-bottom: 4rem;
+    }
+
+    /* FAQ items */
+    .faq-item {
+        padding: 1.25rem;
+    }
+}
+
+/* ─── Small Phones (≤ 480px) ─── */
+@media (max-width: 480px) {
+
+    /* Hero — smaller text to prevent overlap */
+    .hero {
+        padding: 4rem 1rem 3rem;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+    }
+
+    .hero-buttons {
+        gap: 0.75rem;
+    }
+
+    .hero-buttons .btn-ghost {
+        padding: 0.75rem 1.75rem;
+        font-size: 0.75rem;
+    }
+
+    .hero-buttons .link-elegant {
+        font-size: 0.7rem;
+    }
+
+    /* Navbar */
+    .navbar-inner {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo-text {
+        font-size: 1.2rem;
+    }
+
+    /* Page Headers */
+    .page-header {
+        padding: 4.5rem 1rem 2rem;
+    }
+
+    /* Section spacing */
+    .pt-32 {
+        padding-top: 4.5rem;
+    }
+
+    .py-24 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* Typography */
+    .text-5xl {
+        font-size: 1.75rem;
+    }
+
+    .text-6xl {
+        font-size: 2rem;
+    }
+
+    .text-7xl {
+        font-size: 2.25rem;
+    }
+
+    .text-4xl {
+        font-size: 1.5rem;
+    }
+
+    .text-3xl {
+        font-size: 1.25rem;
+    }
+
+    .text-2xl {
+        font-size: 1.125rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+
+    .container-sm {
+        padding: 0 1rem;
+    }
+
+    /* Gallery grid — single column on small phones */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.square .gallery-item-inner {
+        min-height: 220px;
+    }
+
+    .gallery-item.tall .gallery-item-inner {
+        min-height: 350px;
+    }
+
+    /* Service cards */
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1rem;
+    }
+
+    .service-card p {
+        font-size: 0.8rem;
+    }
+
+    /* Service full layout */
+    .service-full-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .service-full-content p {
+        font-size: 0.875rem;
+    }
+
+    /* Add-ons — single column */
+    .addons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.55rem;
+    }
+
+    /* About image */
+    .about-image {
+        aspect-ratio: 4/3;
+    }
+
+    .about-content h2 {
+        font-size: 1.1rem;
+    }
+
+    /* Buttons */
+    .btn-ghost {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 2.5rem 1rem;
+        padding-bottom: 5rem;
+    }
+
+    .footer-links {
+        gap: 0.75rem 1.25rem;
+    }
+
+    .footer-link {
+        font-size: 0.65rem;
+    }
+
+    /* Form */
+    .form-section {
+        padding: 3rem 1rem;
+    }
+
+    /* Contact cards */
+    .contact-card {
+        padding: 1.25rem;
+    }
+
+    /* FAQ */
+    .faq-question {
+        font-size: 0.875rem;
+    }
+
+    .faq-answer {
+        font-size: 0.8rem;
+    }
+
+    /* WhatsApp mobile bar */
+    .whatsapp-mobile a {
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .whatsapp-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .whatsapp-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Mobile menu */
+    .mobile-menu a {
+        font-size: 1.25rem;
+        letter-spacing: 0.15em;
+    }
+}
+
+/* ─── Very Small Phones (≤ 360px) ─── */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-tagline {
+        font-size: 0.8rem;
+    }
+
+    .navbar-logo-text {
+        font-size: 1.05rem;
+    }
+
+    .text-4xl {
+        font-size: 1.25rem;
+    }
+
+    .text-3xl {
+        font-size: 1.1rem;
+    }
+
+    .text-2xl {
+        font-size: 1rem;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+
+    .stat-label {
+        font-size: 0.5rem;
+    }
+
+    .btn-ghost {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.7rem;
+    }
+
+    .gallery-tab {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.65rem;
+    }
+
+    .footer-links {
+        gap: 0.5rem 1rem;
+    }
+}
+
+/* ─── Landscape Phone Fix ─── */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 4rem 1.5rem 2rem;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* ─── Safety: prevent horizontal overflow on ALL sizes ─── */
+main,
+section,
+.container,
+.container-sm {
+    overflow-x: hidden;
 }
