@@ -253,4 +253,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // ═══════════════════════════════════════════════════════════════
+    // PROGRESSIVE IMAGE LOADING
+    // Images start at opacity: 0 (via CSS) and fade in when loaded
+    // ═══════════════════════════════════════════════════════════════
+
+    const allImages = document.querySelectorAll(
+        '.gallery-item-inner img, .service-full-image img, .about-image img'
+    );
+
+    allImages.forEach(function (img) {
+        if (img.complete && img.naturalHeight !== 0) {
+            // Already loaded (cached)
+            img.classList.add('img-loaded');
+        } else {
+            img.addEventListener('load', function () {
+                this.classList.add('img-loaded');
+            });
+            img.addEventListener('error', function () {
+                // Still show space even if image fails
+                this.classList.add('img-loaded');
+            });
+        }
+    });
+
 });

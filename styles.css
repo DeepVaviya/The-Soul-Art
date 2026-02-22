@@ -1145,6 +1145,22 @@ h6 {
     max-height: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item-inner img.img-loaded {
+    opacity: 1;
+}
+
+/* Service & About page images */
+.service-full-image img {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.service-full-image img.img-loaded {
+    opacity: 1;
 }
 
 .gallery-item:hover .gallery-item-inner {
@@ -2305,12 +2321,4 @@ h6 {
     .scroll-indicator {
         display: none;
     }
-}
-
-/* ─── Safety: prevent horizontal overflow on ALL sizes ─── */
-main,
-section,
-.container,
-.container-sm {
-    overflow-x: hidden;
 }
