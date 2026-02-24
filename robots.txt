@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://thesoulart.com/sitemap.xml
+Sitemap: https://mehendibyishita.in/sitemap.xml
