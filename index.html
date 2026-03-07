@@ -317,6 +317,82 @@
     </section>
   </main>
 
+  <!-- Testimonials -->
+  <section id="testimonials-section">
+    <div class="testimonials-header">
+      <p class="section-subtitle text-gold">Client Love</p>
+      <h2 class="heading-gold text-2xl md:text-3xl">Whispers from Happy Hands</h2>
+      <p>Real brides, real stories. Add yours and join the circle.</p>
+      <div class="testimonial-badges">
+        <span class="badge-pill">★ 4.9/5 Average</span>
+        <span class="badge-pill">500+ Celebrations</span>
+        <span class="badge-pill">Since 2018</span>
+      </div>
+    </div>
+
+    <div class="testimonial-layout">
+      <div class="testimonial-form-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <form id="testimonial-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="reviewer-name">Name</label>
+              <input type="text" id="reviewer-name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="reviewer-message">Your words</label>
+              <textarea id="reviewer-message" rows="4" placeholder="Share the magic you felt..." required style="width: 392px; height: 156px;"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group rating-group">
+            <span class="rating-label">Rate your experience</span>
+            <div class="rating-pills" role="radiogroup" aria-label="Rate your experience">
+              <label class="rating-pill">
+                <input type="radio" name="reviewer-rating" value="5" checked>
+                <span class="pill-stars">★★★★★</span>
+                <small>Flawless</small>
+              </label>
+              <label class="rating-pill">
+                <input type="radio" name="reviewer-rating" value="4">
+                <span class="pill-stars">★★★★</span>
+                <small>Loved it</small>
+              </label>
+              <label class="rating-pill">
+                <input type="radio" name="reviewer-rating" value="3">
+                <span class="pill-stars">★★★</span>
+                <small>Great</small>
+              </label>
+              <label class="rating-pill">
+                <input type="radio" name="reviewer-rating" value="2">
+                <span class="pill-stars">★★</span>
+                <small>Okay</small>
+              </label>
+              <label class="rating-pill">
+                <input type="radio" name="reviewer-rating" value="1">
+                <span class="pill-stars">★</span>
+                <small>Needs work</small>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" id="submit-review-btn">Post My Review</button>
+          <p id="form-success-msg" class="hidden">Thank you! Your review has been posted.</p>
+        </form>
+      </div>
+
+      <div class="testimonial-showcase">
+        <div class="showcase-overlay"></div>
+        <div id="testimonials-container" class="testimonials-grid">
+          <p id="loading-msg">Loading testimonials...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="testimonials.js"></script>
+
   <!-- Footer -->
   <footer class="footer z-content">
     <p class="footer-logo">The Soul Art</p>
