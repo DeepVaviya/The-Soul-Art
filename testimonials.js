@@ -7,6 +7,33 @@ const API_URL = 'https://sheetdb.io/api/v1/p08cl6kx28ts8';
 const form = document.getElementById('testimonial-form');
 const testimonialsContainer = document.getElementById('testimonials-container');
 
+// Convert stored sheet date (string or Excel serial) to readable text
+function formatDate(value) {
+  if (!value) return '';
+
+  const displayOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+  const asNumber = Number(value);
+
+  // Google Sheets can send Excel-style serial numbers (e.g., 46089)
+  if (!Number.isNaN(asNumber) && /^\d+(?:\.\d+)?$/.test(String(value))) {
+    const excelEpoch = 25569; // Days between 1899-12-30 and 1970-01-01
+    const jsTimestamp = Math.round((asNumber - excelEpoch) * 86400 * 1000);
+    const serialDate = new Date(jsTimestamp);
+    if (!Number.isNaN(serialDate.getTime())) {
+      return serialDate.toLocaleDateString('en-IN', displayOptions);
+    }
+  }
+
+  // Fallback: try normal date parsing
+  const parsed = new Date(value);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed.toLocaleDateString('en-IN', displayOptions);
+  }
+
+  // Last resort: return raw value so nothing disappears
+  return String(value);
+}
+
 // 1. Fetch and Display Testimonials
 async function loadTestimonials() {
   try {
@@ -53,7 +80,7 @@ async function loadTestimonials() {
       // Date
       const dateEl = document.createElement('span');
       dateEl.className = 'review-date';
-      dateEl.textContent = review.Date;
+      dateEl.textContent = formatDate(review.Date);
 
       // Assemble and inject the card
       card.appendChild(headerDiv);
@@ -86,7 +113,8 @@ form.addEventListener('submit', async (e) => {
     Name: document.getElementById('reviewer-name').value.trim(),
     Rating: ratingChoice ? ratingChoice.value : '5',
     Message: document.getElementById('reviewer-message').value.trim(),
-    Date: new Date().toLocaleDateString()
+    // ISO date string keeps storage consistent and avoids locale surprises in Sheets
+    Date: new Date().toISOString().split('T')[0]
   };
 
   try {
