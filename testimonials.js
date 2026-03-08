@@ -12,10 +12,11 @@ function formatDate(value) {
   if (!value) return '';
 
   const displayOptions = { year: 'numeric', month: 'short', day: 'numeric' };
-  const asNumber = Number(value);
+  const raw = String(value).trim();
+  const asNumber = Number(raw);
 
   // Google Sheets can send Excel-style serial numbers (e.g., 46089)
-  if (!Number.isNaN(asNumber) && /^\d+(?:\.\d+)?$/.test(String(value))) {
+  if (!Number.isNaN(asNumber) && /^\d+(?:\.\d+)?$/.test(raw)) {
     const excelEpoch = 25569; // Days between 1899-12-30 and 1970-01-01
     const jsTimestamp = Math.round((asNumber - excelEpoch) * 86400 * 1000);
     const serialDate = new Date(jsTimestamp);
@@ -25,13 +26,13 @@ function formatDate(value) {
   }
 
   // Fallback: try normal date parsing
-  const parsed = new Date(value);
+  const parsed = new Date(raw);
   if (!Number.isNaN(parsed.getTime())) {
     return parsed.toLocaleDateString('en-IN', displayOptions);
   }
 
   // Last resort: return raw value so nothing disappears
-  return String(value);
+  return raw;
 }
 
 // 1. Fetch and Display Testimonials
